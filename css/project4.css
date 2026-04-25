@@ -1,0 +1,199 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: "Elms Sans", sans-serif;
+  background-color: #fff5e4;
+  color: black;
+  padding-top: 80px;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid #ff751f;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff5e4;
+  z-index: 1000;
+  transition: 0.3s ease;
+}
+
+.logo a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: black;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-links a:hover {
+  color: #1e40ff;
+}
+
+/* SCROLLED STATE */
+.navbar.scrolled {
+  background-color: #1e40ff;
+}
+
+.navbar.scrolled .logo a,
+.navbar.scrolled .nav-links a {
+  color: white;
+}
+
+/* ================= PROJECT PAGE ================= */
+
+.project-page {
+  width: 80%;
+  max-width: 1200px;
+  margin: 80px auto;
+}
+
+/* TITLE */
+.project-title {
+  font-family: "Rubik Mono One", monospace;
+  font-size: 48px;
+  color: #1e40ff;
+  margin-bottom: 80px;
+}
+
+/* BLOCKS (IMAGE + TEXT) */
+.project-block {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 100px;
+}
+
+/* REVERSED BLOCK */
+.project-block.reverse {
+  flex-direction: row-reverse;
+}
+
+/* IMAGE */
+.project-image {
+  width: 50%;
+}
+
+.project-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+/* TEXT */
+.project-text {
+  width: 50%;
+}
+
+.project-text h3 {
+  font-size: 26px;
+  margin-bottom: 15px;
+  color: #ff751f;
+}
+
+.project-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.link-volmaakt {
+  color: #1e40ff;;
+  font-weight: bold;
+}
+
+/* ================= GALLERY ================= */
+
+.project-gallery {
+  display: flex;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.project-gallery img {
+  width: 33.33%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.hover-swap {
+  position: relative;
+  width: 33.33%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.hover-swap img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+  transition: transform 1s;
+  transform: scale(1.03);
+  will-change: opacity;
+}
+
+.img-alt {
+  opacity: 0;
+}
+
+.link-volmaakt {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-decoration: none;
+}   
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+  .project-block {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-block,
+  .project-block.reverse {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .project-image,
+  .project-text {
+    width: 100%;
+  }
+
+  .project-gallery {
+    flex-direction: column;
+  }
+
+  .project-gallery img,
+  .hover-swap {
+    width: 100%;
+  }
+}
