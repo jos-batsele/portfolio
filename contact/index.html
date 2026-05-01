@@ -28,13 +28,21 @@
   </head>
 
   <body>
+    
     <!----- Navigation ----->
-    <nav class="contact-navbar">
-      <div class="contact-logo"><a href="/index.html">Rozemarijn Tack</a></div>
-      <ul class="contact-nav-links">
-        <li><a href="/index.html#about">Over mij</a></li>
-        <li><a href="/index.html#projects">Projecten</a></li>
-        <li><a href="/contact/">Contact</a></li>
+    <nav class="navbar">
+      <div class="logo"><a href="/">Rozemarijn Tack</a></div>
+
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="/#about">Over mij</a></li>
+        <li><a href="/#projects">Projecten</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -103,9 +111,11 @@
         </form>
       </div>
     </section>
+  
   </body>
 
   <footer class="footer">
+
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-left">
@@ -141,5 +151,42 @@
         <p class="footer-copyright">© 2026 Rozemarijn Tack — Portfolio</p>
       </div>
     </div>
+
   </footer>
+
+  <script>
+
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY) > 5) {
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    });
+
+  </script>
+
 </html>

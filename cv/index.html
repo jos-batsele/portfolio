@@ -41,11 +41,18 @@
 
     <!----- Navigation ----->
     <nav class="navbar">
-      <div class="logo"><a href="/index.html">Rozemarijn Tack</a></div>
+      <div class="logo"><a href="/">Rozemarijn Tack</a></div>
+
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <ul class="nav-links">
-        <li><a href="/index.html#about">Over mij</a></li>
-        <li><a href="/index.html#projects">Projecten</a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/#about">Over mij</a></li>
+        <li><a href="/#projects">Projecten</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -153,61 +160,57 @@
           </div>
 
           <div class="cv-block">
-              <h2>Competenties</h2>
+            <h2>Competenties</h2>
 
-              <ul class="cv-list">
-                <li>
-                  <span>Leergierig, creatief, geduldig, sociaal</span>
+            <ul class="cv-list">
+              <li>
+                <span>Leergierig, creatief, geduldig, sociaal</span>
+              </li>
+              <li>
+                <span>Verantwoordelijk & behulpzaam</span>
+              </li>
+
+              <!-- Computervaardigheden as ONE bullet -->
+              <li>
+                <span>Computervaardigheden</span>
+              </li>
+
+              <ul class="cv-sub-list">
+
+                <li class="skill-item">
+                  <span>SketchUp</span>
+                  <span class="skill-bar" data-level="5"></span>
                 </li>
-                <li>
-                  <span>Verantwoordelijk & behulpzaam</span>
+
+                <li class="skill-item">
+                  <span>AutoCad</span>
+                  <span class="skill-bar" data-level="4"></span>
                 </li>
 
-                <!-- Computervaardigheden as ONE bullet -->
-                <li>
-                  <span>Computervaardigheden</span>
+                <li class="skill-item">
+                  <span>Vectorworks</span>
+                  <span class="skill-bar" data-level="4"></span>
                 </li>
 
-                <ul class="cv-sub-list">
+                <li class="skill-item">
+                  <span>Photoshop</span>
+                  <span class="skill-bar" data-level="4"></span>
+                </li>
 
-                  <li class="skill-item">
-                    <span>SketchUp</span>
-                    <span class="skill-bar" data-level="5"></span>
-                  </li>
+                <li class="skill-item">
+                  <span>Illustrator</span>
+                  <span class="skill-bar" data-level="4"></span>
+                </li>
 
-                  <li class="skill-item">
-                    <span>AutoCad</span>
-                    <span class="skill-bar" data-level="4"></span>
-                  </li>
-
-                  <li class="skill-item">
-                    <span>Vectorworks</span>
-                    <span class="skill-bar" data-level="4"></span>
-                  </li>
-
-                  <li class="skill-item">
-                    <span>Photoshop</span>
-                    <span class="skill-bar" data-level="4"></span>
-                  </li>
-
-                  <li class="skill-item">
-                    <span>Illustrator</span>
-                    <span class="skill-bar" data-level="4"></span>
-                  </li>
-
-                  <li class="skill-item">
-                    <span>InDesign</span>
-                    <span class="skill-bar" data-level="4"></span>
-                  </li>
-
-                </ul>
+                <li class="skill-item">
+                  <span>InDesign</span>
+                  <span class="skill-bar" data-level="4"></span>
+                </li>
 
               </ul>
             </div>
           </div>
-
         </div>
-
       </div>
 
     </section>
@@ -268,15 +271,25 @@
       }
     });
         
-    const title = document.querySelector(".hero-title");
-    const text = title.textContent;
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-    title.innerHTML = "";
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
 
-    text.split("").forEach((letter) => {
-      const span = document.createElement("span");
-      span.textContent = letter === " " ? "\u00A0" : letter; // keep spaces
-      title.appendChild(span);
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY) > 5) {
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+        }
+      }
+
+      lastScrollY = currentScrollY;
     });
 
   </script>

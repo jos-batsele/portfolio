@@ -39,11 +39,18 @@
 
     <!----- Navigation ----->
     <nav class="navbar">
-      <div class="logo"><a href="/index.html">Rozemarijn Tack</a></div>
+      <div class="logo"><a href="/">Rozemarijn Tack</a></div>
+
+      <div class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
       <ul class="nav-links">
-        <li><a href="/index.html#about">About me</a></li>
-        <li><a href="/index.html#projects">Projects</a></li>
-        <li><a href="/contact/">Contact</a></li>
+        <li><a href="/#about">Over mij</a></li>
+        <li><a href="/#projects">Projecten</a></li>
+        <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
 
@@ -51,48 +58,76 @@
       <h2 class="section-title">Wandlamp Hygge</h2>
 
       <div class="coming-soon">
-        Project komt binnenkort online<span class="dots"></span>
+        Project komt binnenkort online ...<span class="dots"></span>
       </div>
     </section>
     
   </body>
 
-  <footer class="footer">
+    <footer class="footer">
+
     <div class="footer-container">
-      <!-- LEFT -->
-      <div class="footer-left">
-        <p class="footer-title">Portfolio</p>
-        <p class="footer-subtitle">Interior & Product Design Student</p>
+
+      <div class="footer-top">
+        
+        <div class="footer-left">
+          <p class="footer-title">Portfolio</p>
+          <p class="footer-subtitle">Interieur & Product Design Student</p>
+          <p class="footer-credits">build by <a href="">Jos Batselé</a></p>
+        </div>
+
+        <div class="footer-center">
+          <p>
+            <a href="mailto:tack.rozemarijn@gmail.com">
+              tack.rozemarijn@gmail.be
+            </a>
+          </p>
+          <p><a href="tel:+32470307717">+32 470 30 77 17</a></p>
+        </div>
+
+        <div class="footer-right">
+          <a href="https://www.instagram.com/loumi_designstudio/" target="_blank" class="icon">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/" target="_blank" class="icon">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+        </div>
+
       </div>
 
-      <!-- CENTER -->
-      <div class="footer-center">
-        <p>
-          <a href="mailto:tack.rozemarijn@gmail.com"
-            >tack.rozemarijn@gmail.be</a
-          >
+      <div class="footer-bottom">
+        <p class="footer-copyright">
+          © 2026 Rozemarijn Tack — Portfolio
         </p>
-        <p><a href="tel:+32470307717">+32 470 30 77 17</a></p>
       </div>
 
-      <!-- RIGHT -->
-      <div class="footer-right">
-        <a
-          href="https://www.instagram.com/loumi_designstudio/"
-          target="_blank"
-          class="icon"
-        >
-          <i class="fa-brands fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com/" target="_blank" class="icon">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-      </div>
     </div>
+
   </footer>
 
   <script>
 
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      const currentScrollY = window.scrollY;
+
+      if (Math.abs(currentScrollY - lastScrollY) > 5) {
+        if (navLinks.classList.contains("active")) {
+          navLinks.classList.remove("active");
+        }
+      }
+
+      lastScrollY = currentScrollY;
+    });
 
   </script>
 
